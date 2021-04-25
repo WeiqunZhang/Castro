@@ -63,7 +63,7 @@ void Radiation::check_convergence_er(Real& relative, Real& absolute, Real& err_e
       });
   }
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
 
   relative = amrex::get<0>(hv);
   absolute = amrex::get<1>(hv);
@@ -140,7 +140,7 @@ void Radiation::check_convergence_matt(const MultiFab& rhoe_new, const MultiFab&
       });
   }
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
   rel_rhoe = amrex::get<0>(hv);
   abs_rhoe = amrex::get<1>(hv);
   rel_FT   = amrex::get<2>(hv);

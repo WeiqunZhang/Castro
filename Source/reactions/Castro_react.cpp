@@ -196,7 +196,7 @@ Castro::react_state(MultiFab& s, MultiFab& r, Real time, Real dt)
 
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real burn_failed = amrex::get<0>(hv);
 
     if (burn_failed != 0.0) {
@@ -466,7 +466,7 @@ Castro::react_state(Real time, Real dt)
 
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real burn_failed = amrex::get<0>(hv);
 
     if (burn_failed != 0.0) burn_success = 0;

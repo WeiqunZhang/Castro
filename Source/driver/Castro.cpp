@@ -1184,7 +1184,7 @@ Castro::initData ()
 
        }
 
-       ReduceTuple hv = reduce_data.value();
+       ReduceTuple hv = reduce_data.value(reduce_op);
        int init_failed_T   = amrex::get<0>(hv);
        int init_failed_rho = amrex::get<1>(hv);
 
@@ -3951,7 +3951,7 @@ Castro::check_div_B( MultiFab& Bx,
 
   }
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
   int init_fail_divB = amrex::get<0>(hv);
 
   if (init_fail_divB != 0) {

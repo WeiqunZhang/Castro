@@ -132,7 +132,7 @@ Castro::estdt_cfl(const Real time)
 
   }
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
   Real estdt_hydro = amrex::get<0>(hv);
 
   return estdt_hydro;
@@ -244,7 +244,7 @@ Castro::estdt_mhd()
 
   }
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
   Real estdt_mhd = amrex::get<0>(hv);
 
   return estdt_mhd;
@@ -338,7 +338,7 @@ Castro::estdt_temp_diffusion(void)
     });
   }
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
   Real estdt_diff = amrex::get<0>(hv);
 
   return estdt_diff;
@@ -485,7 +485,7 @@ Castro::estdt_burning()
 
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real estdt = amrex::get<0>(hv);
 
     return estdt;

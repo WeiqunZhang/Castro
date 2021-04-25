@@ -49,7 +49,7 @@ Castro::flame_width_properties (Real time, Real& T_max, Real& T_min, Real& grad_
         });
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     T_max = amrex::max(T_max, amrex::get<0>(hv));
     T_min = amrex::min(T_min, amrex::get<1>(hv));
     grad_T_max = amrex::max(grad_T_max, amrex::get<2>(hv));
@@ -88,6 +88,6 @@ Castro::flame_speed_properties (Real time, Real& rho_fuel_dot)
         });
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     rho_fuel_dot += amrex::get<0>(hv);
 }

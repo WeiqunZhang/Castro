@@ -74,7 +74,7 @@ Castro::problem_post_timestep()
 
             }
 
-            ReduceTuple hv = reduce_data.value();
+            ReduceTuple hv = reduce_data.value(reduce_op);
             to_stop = amrex::max(to_stop, amrex::get<0>(hv));
 
             v.reset();

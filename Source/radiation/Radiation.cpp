@@ -1027,7 +1027,7 @@ void Radiation::internal_energy_update(Real& relative, Real& absolute,
       });
   }
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
 
   relative = amrex::get<0>(hv);
   absolute = amrex::get<1>(hv);

@@ -372,7 +372,7 @@ Castro::check_for_cfl_violation(const MultiFab& State, const Real dt)
 
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real courno = amrex::get<0>(hv);
 
     ParallelDescriptor::ReduceRealMax(courno);

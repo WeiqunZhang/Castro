@@ -80,7 +80,7 @@ Castro::pointmass_update(Real time, Real dt)
 
         }
 
-        ReduceTuple hv = reduce_data.value();
+        ReduceTuple hv = reduce_data.value(reduce_op);
         Real mass_change_at_center = amrex::get<0>(hv);
 
         ParallelDescriptor::ReduceRealSum(mass_change_at_center);

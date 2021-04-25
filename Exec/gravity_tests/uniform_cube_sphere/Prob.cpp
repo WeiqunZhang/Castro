@@ -258,7 +258,7 @@ void Castro::problem_post_init()
 
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real norm_diff = amrex::get<0>(hv);
     Real norm_exact = amrex::get<1>(hv);
 

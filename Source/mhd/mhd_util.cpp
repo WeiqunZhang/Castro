@@ -107,7 +107,7 @@ Castro::check_for_mhd_cfl_violation(const Box& bx,
 
   });
 
-  ReduceTuple hv = reduce_data.value();
+  ReduceTuple hv = reduce_data.value(reduce_op);
   Real courno = amrex::get<0>(hv);
 
   if (courno > 1.0) {

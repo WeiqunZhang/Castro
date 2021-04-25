@@ -60,7 +60,7 @@ Castro::volWgtSum (const std::string& name,
 
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real sum = amrex::get<0>(hv);
 
     if (!local)
@@ -113,7 +113,7 @@ Castro::volWgtSquaredSum (const std::string& name,
 
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real sum = amrex::get<0>(hv);
 
     if (!local)
@@ -196,7 +196,7 @@ Castro::locWgtSum (const std::string& name,
         });
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real sum = amrex::get<0>(hv);
 
     if (!local)
@@ -247,7 +247,7 @@ Castro::volProductSum (const std::string& name1,
         });
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real sum = amrex::get<0>(hv);
 
     if (!local)
@@ -328,7 +328,7 @@ Castro::locSquaredSum (const std::string& name,
         });
     }
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
     Real sum = amrex::get<0>(hv);
 
     if (!local)

@@ -283,7 +283,7 @@ Castro::wd_update (Real time, Real dt)
 
     // Do all of the reductions.
 
-    ReduceTuple hv = reduce_data.value();
+    ReduceTuple hv = reduce_data.value(reduce_op);
 
     com_P[0] = amrex::get<0>(hv);
     com_P[1] = amrex::get<1>(hv);
@@ -486,7 +486,7 @@ void Castro::volInBoundary (Real time, Real& vol_P, Real& vol_S, Real rho_cutoff
 
       }
 
-      ReduceTuple hv = reduce_data.value();
+      ReduceTuple hv = reduce_data.value(reduce_op);
 
       vol_P += amrex::get<0>(hv);
       vol_S += amrex::get<1>(hv);
@@ -996,7 +996,7 @@ Castro::update_relaxation(Real time, Real dt) {
 
         }
 
-        ReduceTuple hv = reduce_data.value();
+        ReduceTuple hv = reduce_data.value(reduce_op);
 
         force_P[0] += amrex::get<0>(hv);
         force_P[1] += amrex::get<1>(hv);
@@ -1107,7 +1107,7 @@ Castro::update_relaxation(Real time, Real dt) {
 
         }
 
-        ReduceTuple hv = reduce_data.value();
+        ReduceTuple hv = reduce_data.value(reduce_op);
         potential = amrex::get<0>(hv);
 
         amrex::ParallelDescriptor::ReduceRealSum(potential);
@@ -1153,7 +1153,7 @@ Castro::update_relaxation(Real time, Real dt) {
 
         }
 
-        ReduceTuple hv = reduce_data.value();
+        ReduceTuple hv = reduce_data.value(reduce_op);
         Real is_done = amrex::get<0>(hv);
 
         amrex::ParallelDescriptor::ReduceRealSum(is_done);
